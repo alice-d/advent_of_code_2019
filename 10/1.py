@@ -1,16 +1,15 @@
-import math
+
 inp=input()
-mapp =[] #im switching y and x
 asteroids =[]
 y=0
 while inp!="":
     for x in range(len(inp)):
         if (inp[x]=="#"):
             asteroids.append([y,x])
-    mapp.append(inp)
     y+=1
     inp=input()
 
+print(asteroids)
 
 from functools import reduce
 def factors(n):    
@@ -19,7 +18,6 @@ def factors(n):
 
 maxDetected=0
 bestAst=[-1,-1]
-detectedAst=[]
 for a in asteroids:
     #print(a)
     detects=0

@@ -1,14 +1,12 @@
 import math
-inp=input()
+inp="03036732577212944063491565474664"
 originalPattern=[0, 1, 0, -1]
-mul=math.ceil(len(inp)/len(originalPattern))
+size=len(inp)
+mul=int(math.ceil(size/len(originalPattern)))
 
 bigPattern = originalPattern*(mul+1)
 
-size=len(inp)
-print(inp)
-print(bigPattern)
-
+print(size)
 
 def extend(num, pattern,size):
     newPat=[]
@@ -22,20 +20,14 @@ def extend(num, pattern,size):
         if stop: break
     return newPat
 
-for a in range(100):
+for a in range(1000):
     res=[]
     for i in range(size):
         pat = extend(i+1,bigPattern,size)[1:] 
-        #print(pat)
         #pat=pat[1:]
         summ=0
-        
         for j in range(size):
             summ+=int(inp[j])*pat[j]
-            #print(int(inp[j])*pat[j])
-        #print("summ")
-        #print(abs(summ))
-        #print("-")
 
         res.append(str(abs(summ)%10))
         #res += abs(summ)%10 * 10**i
@@ -43,3 +35,4 @@ for a in range(100):
     print("After "+str(a+1)+" ")
     inp="".join(res)
     print(inp)
+
